@@ -1,7 +1,11 @@
 import React from "react";
 
-const multipleChoicesFlashcard: React.FC = () => {
-  return <div>multipleChoicesFlashcard</div>;
+const MultipleChoicesFlashcard: React.FC = () => {
+  return (
+    <div>
+      <h1>multipleChoicesFlashcard</h1>
+    </div>
+  );
 };
 
-export default multipleChoicesFlashcard;
+export default MultipleChoicesFlashcard;

@@ -1,7 +1,11 @@
 import React from "react";
 
-const inputFlashcard: React.FC = () => {
-  return <div>inputFlashcard</div>;
+const InputFlashcard: React.FC = () => {
+  return (
+    <div>
+      <h1>inputFlashcard</h1>
+    </div>
+  );
 };
 
-export default inputFlashcard;
+export default InputFlashcard;
