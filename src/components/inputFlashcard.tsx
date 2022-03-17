@@ -1,6 +1,14 @@
 import React from "react";
-
-const InputFlashcard: React.FC = () => {
+type Data = {
+  id: number;
+  question: string;
+  answer: string;
+  options: string[];
+}[];
+type InputFlashcardProps = {
+  data: Data;
+};
+const InputFlashcard: React.FC<InputFlashcardProps> = (props) => {
   return (
     <div>
       <h1>inputFlashcard</h1>

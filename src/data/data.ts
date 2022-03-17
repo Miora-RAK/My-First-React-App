@@ -1,7 +1,7 @@
 const data = [
   {
     id: 1,
-    question: "How do you call a function named &quot doSomething &quot ?",
+    question: 'How do you call a function named "doSomething" ?',
     answer: "doSomething()",
     options: ["()", "doSomething", "doSomething()"],
   },

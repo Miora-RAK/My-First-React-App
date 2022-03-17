@@ -2,6 +2,7 @@ import React from "react";
 import InputFlashcard from "./inputFlashcard";
 import MentalFlashcard from "./mentalFlashcard";
 import MultipleChoicesFlashcard from "./multipleChoiceFlashcard";
+import data from "../data/data";
 
 const Flashcard: React.FC = () => {
   return (
@@ -21,13 +22,13 @@ const Flashcard: React.FC = () => {
       </div>
       <div className="row align-items-center">
         <div className="col">
-          <MentalFlashcard />
+          <MentalFlashcard data={data} />
         </div>
         <div className="col">
-          <InputFlashcard />
+          <InputFlashcard data={data} />
         </div>
         <div className="col">
-          <MultipleChoicesFlashcard />
+          <MultipleChoicesFlashcard data={data} />
         </div>
       </div>
     </div>

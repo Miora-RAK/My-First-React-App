@@ -1,6 +1,17 @@
 import React from "react";
 
-const MultipleChoicesFlashcard: React.FC = () => {
+type Data = {
+  id: number;
+  question: string;
+  answer: string;
+  options: string[];
+}[];
+type MultipleChoicesFlashcardProps = {
+  data: Data;
+};
+const MultipleChoicesFlashcard: React.FC<MultipleChoicesFlashcardProps> = (
+  props
+) => {
   return (
     <div>
       <h1>multipleChoicesFlashcard</h1>

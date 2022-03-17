@@ -1,22 +1,24 @@
 import React from "react";
-
-const MentalFlashcard: React.FC = () => {
-  const question: string[] = [];
-  const [addFlashcard, setaddFlashcard] = React.useState<string[]>(question);
+type Data = {
+  id: number;
+  question: string;
+  answer: string;
+  options: string[];
+}[];
+type MentalFlashcardProps = {
+  data: Data;
+};
+const MentalFlashcard: React.FC<MentalFlashcardProps> = (props) => {
+  const [showAnswer, setShowAnswer] = React.useState(false);
   const addSolution = (): void => {
-    setaddFlashcard(() => {
-      return question.map(() => "solution");
-    });
+    setShowAnswer(!showAnswer);
   };
   return (
     <div>
       <h1>mentalFlashcard</h1>
-      <button onClick={addSolution}>
-        How do you call a function named "doSomething"?
-      </button>
-      {addFlashcard.map((timerList) => {
-        return "solution";
-      })}
+      <div className="bg bg-secondary text-white " onClick={addSolution}>
+        {showAnswer ? props.data[0].answer : props.data[0].question}
+      </div>
     </div>
   );
 };
