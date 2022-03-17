@@ -8,9 +8,15 @@ const Flashcard: React.FC = () => {
     <div>
       <div>
         <ul>
-          <li>MentalFlashcard</li>
-          <li>MentalFlashcard</li>
-          <li>MultipleChoicesFlashcard</li>
+          <li>
+            <a href="#">MentalFlashcard</a>
+          </li>
+          <li>
+            <a href="#">InputFlashcard</a>
+          </li>
+          <li>
+            <a href="#">MultipleChoicesFlashcard</a>
+          </li>
         </ul>
       </div>
       <div className="row align-items-center">
