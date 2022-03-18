@@ -48,11 +48,17 @@ const MultipleChoicesFlashcard: React.FC<MultipleChoicesFlashcardProps> = (
     setAddQuestion(props.data[2].question);
   };
   return (
-    <div className={`rounded ${backgroundColor}`}>
-      <h1 onClick={reset}>multipleChoicesFlashcard</h1>
-      <p>{wrong}</p>
-      <p>{addQuestion}</p>
-      <form onSubmit={handleSubmit}>
+    <div className={`rounded text-white p-5 ${backgroundColor}`}>
+      <div className="text-center">
+        <h1 onClick={reset}>MultipleChoicesFlashcard</h1>
+        <p>{wrong}</p>
+        <p>{addQuestion}</p>
+      </div>
+
+      <form
+        className="col-md text-center custom-control custom-radio "
+        onSubmit={handleSubmit}
+      >
         <div className="form-check" id="1">
           <input
             className="form-check-input"

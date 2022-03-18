@@ -18,7 +18,7 @@ const MentalFlashcard: React.FC<MentalFlashcardProps> = (props) => {
   };
 
   return (
-    <div className="card text-white bg-secondary mb-3">
+    <div className="card text-white bg-secondary p-5">
       <div className="card-header">
         <h1>Mental Flashcard</h1>
       </div>

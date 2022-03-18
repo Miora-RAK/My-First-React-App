@@ -49,10 +49,13 @@ const InputFlashcard: React.FC<InputFlashcardProps> = (props) => {
   };
 
   return (
-    <div className={`mb-3 rounded ${backgroundColor}`}>
-      <h1 onClick={reset}>inputFlashcard </h1>
-      <p>{wrong}</p>
-      <form onSubmit={handleSubmit}>
+    <div className={`rounded  text-white p-5 ${backgroundColor}`}>
+      <div className="text-center">
+        <h1 onClick={reset}>Input Flashcard</h1>
+        <p>{wrong}</p>
+      </div>
+
+      <form className="text-center" onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="question">{addQuestion}</label>
 
