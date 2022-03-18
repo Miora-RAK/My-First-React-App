@@ -5,6 +5,7 @@ import MultipleChoicesFlashcard from "./multipleChoiceFlashcard";
 import data from "../data/data";
 
 const Flashcard: React.FC = () => {
+  let randomData = data[Math.floor(Math.random() * data.length)];
   return (
     <div>
       <div>

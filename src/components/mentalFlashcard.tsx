@@ -16,7 +16,10 @@ const MentalFlashcard: React.FC<MentalFlashcardProps> = (props) => {
   return (
     <div>
       <h1>mentalFlashcard</h1>
-      <div className="bg bg-secondary text-white " onClick={addSolution}>
+      <div
+        className="bg bg-secondary text-white rounded "
+        onClick={addSolution}
+      >
         {showAnswer ? props.data[0].answer : props.data[0].question}
       </div>
     </div>

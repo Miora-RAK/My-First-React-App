@@ -12,6 +12,18 @@ type MultipleChoicesFlashcardProps = {
 const MultipleChoicesFlashcard: React.FC<MultipleChoicesFlashcardProps> = (
   props
 ) => {
+  const [answerSelected, setAnswerSelected] = React.useState(false);
+  const handleAnswerSelected = () => {
+    setAnswerSelected((event: any) => {
+      console.log("multiple", event);
+      return !answerSelected;
+    });
+  };
+  const handleSubmit = (event: any) => {
+    event.preventDefault();
+    const data = JSON.stringify(answerSelected);
+    console.log(data);
+  };
   return (
     <div>
       <h1>multipleChoicesFlashcard</h1>
@@ -19,11 +31,12 @@ const MultipleChoicesFlashcard: React.FC<MultipleChoicesFlashcardProps> = (
       <div className="form-check">
         <input
           className="form-check-input"
-          type="radio"
+          type="checkbox"
           name="exampleRadios"
           id="exampleRadios1"
           value="option1"
-          checked
+          checked={answerSelected}
+          onChange={handleAnswerSelected}
         />
         <label className="form-check-label" htmlFor="exampleRadios1">
           &lt;script&gt;
@@ -66,7 +79,11 @@ const MultipleChoicesFlashcard: React.FC<MultipleChoicesFlashcardProps> = (
           Disabled
         </label>
       </div>
-      <button type="submit" className="btn btn-primary ">
+      <button
+        onSubmit={handleSubmit}
+        type="submit"
+        className="btn btn-primary "
+      >
         Submit
       </button>
     </div>

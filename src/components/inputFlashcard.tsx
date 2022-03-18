@@ -1,3 +1,4 @@
+import { queries } from "@testing-library/react";
 import React from "react";
 type Data = {
   id: number;
@@ -8,41 +9,70 @@ type Data = {
 type InputFlashcardProps = {
   data: Data;
 };
-type InputFlashcardEvent = {
-  target: {
-    value: string;
-  };
-};
+// type InputFlashcardEvent = {
+//   target: {
+//     value: string;
+//   };
+// };
 const InputFlashcard: React.FC<InputFlashcardProps> = (props) => {
   const [formText, setFormText] = React.useState("");
   const [wrong, setwrong] = React.useState("");
-  const isItTrue = (text: string) => {};
-  const handleInputText = (event: InputFlashcardEvent) => {
-    console.log(typeof event);
+  const [addQuestion, setAddQuestion] = React.useState(props.data[1].question);
+  const [backgroundColor, setBackgroundColor] = React.useState("");
+
+  const handleInputText = (event: any) => {
+    console.log(event);
     const value = event.target.value;
-    setFormText(event.target.value);
-    value ? setwrong("Wrong answer :(") : setwrong("You got it!!");
+    setFormText(value);
   };
+
+  const handleSubmit = (event: any) => {
+    // event.preventDefault();
+    console.log("ma data", formText);
+    formText === props.data[1].answer
+      ? setBackgroundColor("bg bg-success")
+      : setBackgroundColor("bg bg-danger");
+
+    formText === props.data[1].answer
+      ? setwrong("You got it!!")
+      : setwrong("Wrong answer :( ");
+    setFormText("");
+    return addQuestion === formText || props.data[1].answer
+      ? setAddQuestion("")
+      : null;
+  };
+  const reset = () => {
+    setFormText("");
+    setBackgroundColor("");
+    setwrong("");
+    setAddQuestion(props.data[1].question);
+  };
+
   return (
-    <div>
-      <h1>inputFlashcard</h1>
-      <form>
+    <div className={`rounded ${backgroundColor}`}>
+      <h1 onClick={reset}>inputFlashcard </h1>
+      <p>{wrong}</p>
+      <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label htmlFor="question">{props.data[1].question}</label>
+          <label htmlFor="question">{addQuestion}</label>
+
           <hr />
-          <input
-            onChange={handleInputText}
-            type="text"
-            className="form-control"
-            id="question"
-            placeholder="your answer"
-            value={formText}
-          />
+          {formText === addQuestion ? null : (
+            <input
+              onChange={handleInputText}
+              type="text"
+              className="form-control"
+              id="question"
+              placeholder="your answer"
+            />
+          )}
         </div>
-        <p></p>
-        <button type="submit" className="btn btn-primary">
-          Submit
-        </button>
+        <br />
+        {formText === addQuestion ? null : (
+          <button type="submit" className="btn btn-primary">
+            Submit
+          </button>
+        )}
       </form>
     </div>
   );
