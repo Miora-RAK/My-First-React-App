@@ -1,6 +1,7 @@
 import React from "react";
 type Data = {
   id: number;
+  type: string;
   question: string;
   answer: string;
   options: string[];
@@ -26,11 +27,11 @@ const InputFlashcard: React.FC<InputFlashcardProps> = (props) => {
   };
 
   const handleSubmit = (event: any) => {
-    // event.preventDefault();
+    event.preventDefault();
     console.log("ma data", formText);
     formText === props.data[1].answer
-      ? setBackgroundColor("bg bg-success")
-      : setBackgroundColor("bg bg-danger");
+      ? setBackgroundColor("bg bg-success text-white")
+      : setBackgroundColor("bg bg-danger text-white");
 
     formText === props.data[1].answer
       ? setwrong("You got it!!")
@@ -48,7 +49,7 @@ const InputFlashcard: React.FC<InputFlashcardProps> = (props) => {
   };
 
   return (
-    <div className={`rounded ${backgroundColor}`}>
+    <div className={`mb-3 rounded ${backgroundColor}`}>
       <h1 onClick={reset}>inputFlashcard </h1>
       <p>{wrong}</p>
       <form onSubmit={handleSubmit}>

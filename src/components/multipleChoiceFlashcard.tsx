@@ -2,6 +2,7 @@ import React from "react";
 
 type Data = {
   id: number;
+  type: string;
   question: string;
   answer: string;
   options: string[];
@@ -17,17 +18,6 @@ const MultipleChoicesFlashcard: React.FC<MultipleChoicesFlashcardProps> = (
   const [backgroundColor, setBackgroundColor] = React.useState("");
   const [wrong, setwrong] = React.useState("");
 
-  // const handleAnswerSelected = () => {
-  //   setAnswerSelected((event: any) => {
-  //     console.log("multiple", event);
-  //     return answerSelected === props.data[2].answer ? "false" : "true";
-  //   });
-  // };
-  // const handleSubmit = (event: any) => {
-  //   // event.preventDefault();
-  //   const data = JSON.stringify(answerSelected);
-  //   console.log(data);
-  // };
   const handleInputText = (event: any) => {
     console.log("mon event", event);
 
@@ -74,7 +64,6 @@ const MultipleChoicesFlashcard: React.FC<MultipleChoicesFlashcardProps> = (
           />
 
           <label className="form-check-label" htmlFor="script">
-            {/* {props.data[2].options.map((e) => e)} &lt;script&gt; */}
             {props.data[2].options[2]}
           </label>
         </div>

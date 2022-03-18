@@ -5,33 +5,44 @@ import MultipleChoicesFlashcard from "./multipleChoiceFlashcard";
 import data from "../data/data";
 
 const Flashcard: React.FC = () => {
-  let randomData = data[Math.floor(Math.random() * data.length)];
+  const [onClick, setOnClick] = React.useState(false);
+  const [clickValue, setclickValue] = React.useState("");
+
+  const handleOnClick = (event: any) => {
+    console.log("click", onClick);
+    const value = event.target.value;
+    console.log("click", value);
+    setclickValue(value);
+    setOnClick(!onClick);
+  };
   return (
     <div>
       <div>
-        <ul>
-          <li>
-            <a href="#">MentalFlashcard</a>
-          </li>
-          <li>
-            <a href="#">InputFlashcard</a>
-          </li>
-          <li>
-            <a href="#">MultipleChoicesFlashcard</a>
-          </li>
-        </ul>
+        <button onClick={handleOnClick} value={data[0].type}>
+          MentalFlashcard
+        </button>
+        <button onClick={handleOnClick} value={data[1].type}>
+          InputFlashcard
+        </button>
+        <button onClick={handleOnClick} value={data[2].type}>
+          MultipleChoicesFlashcard
+        </button>
       </div>
-      <div className="row align-items-center">
-        <div className="col">
+      {onClick && clickValue === data[0].type ? (
+        <div className="position-absolute top-50 start-50 translate-middle">
           <MentalFlashcard data={data} />
         </div>
-        <div className="col">
+      ) : null}
+      {onClick && clickValue === data[1].type ? (
+        <div className="position-absolute top-50 start-50 translate-middle">
           <InputFlashcard data={data} />
         </div>
-        <div className="col">
+      ) : null}
+      {onClick && clickValue === data[2].type ? (
+        <div className="position-absolute top-50 start-50 translate-middle">
           <MultipleChoicesFlashcard data={data} />
         </div>
-      </div>
+      ) : null}
     </div>
   );
 };
