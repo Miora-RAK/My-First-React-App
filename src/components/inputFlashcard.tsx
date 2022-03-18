@@ -1,4 +1,3 @@
-import { queries } from "@testing-library/react";
 import React from "react";
 type Data = {
   id: number;
