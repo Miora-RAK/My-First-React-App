@@ -45,7 +45,7 @@ const MultipleChoicesFlashcard: React.FC<MultipleChoicesFlashcardProps> = (
     setAnswerSelected("");
     setBackgroundColor("");
     setwrong("");
-    setAddQuestion(props.data[2].question);
+    setAddQuestion(addQuestion);
   };
   return (
     <div className={`rounded text-white p-5 ${backgroundColor}`}>
@@ -73,6 +73,7 @@ const MultipleChoicesFlashcard: React.FC<MultipleChoicesFlashcardProps> = (
             {props.data[2].options[2]}
           </label>
         </div>
+
         <div className="form-check">
           <input
             className="form-check-input"
@@ -86,6 +87,7 @@ const MultipleChoicesFlashcard: React.FC<MultipleChoicesFlashcardProps> = (
             {props.data[2].options[1]}
           </label>
         </div>
+
         <div className="form-check">
           <input
             className="form-check-input"
@@ -99,6 +101,7 @@ const MultipleChoicesFlashcard: React.FC<MultipleChoicesFlashcardProps> = (
             {props.data[2].options[0]}
           </label>
         </div>
+
         <br />
         <button type="submit" className="btn btn-primary ">
           Submit

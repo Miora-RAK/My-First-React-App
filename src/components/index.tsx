@@ -18,13 +18,25 @@ const Flashcard: React.FC = () => {
   return (
     <div>
       <div>
-        <button onClick={handleOnClick} value={data[0].type}>
+        <button
+          className="bg bg-secondary text-white rounded"
+          onClick={handleOnClick}
+          value={data[0].type}
+        >
           MentalFlashcard
         </button>
-        <button onClick={handleOnClick} value={data[1].type}>
+        <button
+          className="bg bg-secondary text-white rounded"
+          onClick={handleOnClick}
+          value={data[1].type}
+        >
           InputFlashcard
         </button>
-        <button onClick={handleOnClick} value={data[2].type}>
+        <button
+          className="bg bg-secondary text-white rounded"
+          onClick={handleOnClick}
+          value={data[2].type}
+        >
           MultipleChoicesFlashcard
         </button>
       </div>
